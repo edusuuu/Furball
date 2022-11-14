@@ -9,6 +9,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,12 +21,27 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void StartGame(View view){
+    public void StartGame(View view) {
         EditText inputBox = findViewById(R.id.name);
-        String playerName = inputBox.getText().toString();
-        Player.setName(playerName);
-        gameView GameView = new gameView(this);
-        setContentView(GameView);
 
+        boolean playerNameNotSet = isInputBoxEmpty(inputBox);
+
+        if (playerNameNotSet) {
+            Toast.makeText(this, "You did not enter a username", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        else
+        {
+            String playerName = inputBox.getText().toString();
+            Player.setName(playerName);
+            gameView GameView = new gameView(this);
+            setContentView(GameView);
+        }
+
+    }
+
+    private boolean isInputBoxEmpty(EditText inputBox) {
+        return inputBox.getText().toString().trim().length() == 0;
     }
 }
