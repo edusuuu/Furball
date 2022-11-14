@@ -28,7 +28,10 @@ public class GameOver extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.game_over);
         tvName = findViewById(R.id.tvName);
-        tvName.setText(Player.getName());
+        String playerName = Player.getName();
+
+        //Set text view to player name
+        tvName.setText(playerName);
         high_points = findViewById(R.id.high_points);
         NewHighest = findViewById(R.id.NewHighest);
         trophy_highest = findViewById(R.id.trophy_highest);
@@ -36,7 +39,9 @@ public class GameOver extends AppCompatActivity {
         high_points.setText(""+ points);
         sharedPreferences = getSharedPreferences("my_pref", 0);
         int highest = sharedPreferences.getInt("highest", 0);
-        if (points > highest){
+
+        //Update Highest Point
+        if (points > highest) {
             trophy_highest.setVisibility(View.VISIBLE);
             highest = points;
             SharedPreferences.Editor editor= sharedPreferences.edit();
@@ -47,10 +52,9 @@ public class GameOver extends AppCompatActivity {
 
         NewHighest.setText("" + highest);
     }
-    public void restart(View view){
-        Intent intent = new Intent (GameOver.this,MainActivity.class);
-        startActivity(intent);
-        finish();
+    public void restart(View view) {
+        gameView GameView = new gameView(this);
+        setContentView(GameView);
     }
 
     public void exit(View view) {
