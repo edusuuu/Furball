@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
+        //Render Game View
         else
         {
             String playerName = inputBox.getText().toString();
