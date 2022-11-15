@@ -26,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
 
         boolean playerNameNotSet = isInputBoxEmpty(inputBox);
 
-        // INPUT PLAYER'S NAME
         if (playerNameNotSet) {
             Toast.makeText(this, "You did not enter a username", Toast.LENGTH_SHORT).show();
             return;
