@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
         boolean playerNameNotSet = isInputBoxEmpty(inputBox);
 
-        // INPUT PLAYER'S NAME
+        //The game view will not render if the player name is not set.
         if (playerNameNotSet) {
             Toast.makeText(this, "You did not enter a username", Toast.LENGTH_SHORT).show();
             return;
